@@ -22,12 +22,12 @@
                 <li {{ in_array(Request::segment(1), ['drafts','home']) ? 'class=active' : '' }}>
                     {{ link_to_route('cart.index', trans('nav_menu.draft_list'), [], ['class' => 'strong text-primary']) }}
                 </li>
-                <li {{ (Request::segment(1) == 'transactions') ? 'class=active' : '' }}>
+                {{-- <li {{ (Request::segment(1) == 'transactions') ? 'class=active' : '' }}>
                     {{ link_to_route('transactions.index', trans('transaction.list')) }}
                 </li>
                 <li {{ (Request::segment(1) == 'reports') ? 'class=active' : '' }}>
                     {{ link_to_route('reports.sales.index', trans('report.sales')) }}
-                </li>
+                </li> --}}
             </ul>
             <!-- Right Side Of Navbar -->
             <ul class="nav navbar-nav navbar-right">
@@ -46,8 +46,8 @@
                     <ul class="dropdown-menu" role="menu">
                         <li>{{ link_to_route('products.index', trans('product.list')) }}</li>
                         <li>{{ link_to_route('units.index', trans('unit.product_unit')) }}</li>
-                        <li role="separator" class="divider"></li>
-                        <li>{{ link_to_route('products.price-list', trans('product.print_price_list')) }}</li>
+                        {{-- <li role="separator" class="divider"></li>
+                        <li>{{ link_to_route('products.price-list', trans('product.print_price_list')) }}</li> --}}
                     </ul>
                 </li>
                 <li class="dropdown">
@@ -57,8 +57,8 @@
 
                     <ul class="dropdown-menu" role="menu">
                         <li>{{ link_to_route('users.index', trans('user.list')) }}</li>
-                        <li>{{ link_to_route('backups.index', trans('backup.list')) }}</li>
-                        <li>{{ link_to_route('log-files.index', 'Log Files') }}</li>
+                        {{-- <li>{{ link_to_route('backups.index', trans('backup.list')) }}</li>
+                        <li>{{ link_to_route('log-files.index', 'Log Files') }}</li> --}}
                         <li>{{ link_to_route('change-password', trans('auth.change_password')) }}</li>
                         <li role="separator" class="divider"></li>
                         <li>
