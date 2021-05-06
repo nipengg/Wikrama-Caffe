@@ -4,8 +4,11 @@
 
 @section('content')
 <?php use Facades\App\Cart\CartCollection; ?>
+<p>Login Sebagai {{ Auth::user()->is_admin }}</p>
+@if (Auth::user()->is_admin == 'kasir')
 @if (CartCollection::isEmpty())
     <h3 class="page-header">{{ trans('nav_menu.draft_list') }}</h3>
+    
     <form action="{{ route('cart.add') }}" method="POST">
         {{ csrf_field() }}
         <p class="text-muted">Anda belum memiliki Draft Transaksi, silakan buat Transaksi Baru:</p>
@@ -24,6 +27,15 @@
             <div class="col-md-3">@include('cart.partials.form-draft-detail')</div>
         </div>
     @endif
+@endif
+@elseif(Auth::user()->is_admin == 'admin')
+<h3 class="page-header">Menu Admin</h3>
+<p class="text-muted">Anda dapat membuat produk :</p>
+<a href="{{ route('products.index') }}" class="btn btn-default navbar-btn">List dan create produk</a>
+@else
+<h3 class="page-header">Menu Manager</h3>
+<p class="text-muted">Laporan Penjualan :</p>
+<a href="{{ route('reports.sales.index') }}" class="btn btn-default navbar-btn">Laporan Penjualan</a>
 @endif
 @endsection
 

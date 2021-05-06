@@ -24,10 +24,11 @@ class UsersController extends Controller
         $this->validate($request, [
             'name'     => 'required|max:60',
             'username' => 'required|max:30',
+            'is_admin' => 'required|max:30',
             'password' => 'nullable|between:5,15',
         ]);
 
-        $newUserData = $request->only('name', 'username');
+        $newUserData = $request->only('name', 'username', 'is_admin');
 
         if ($request->has('password')) {
             $newUserData['password'] = $request->get('password');

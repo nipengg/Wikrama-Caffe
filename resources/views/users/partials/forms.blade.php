@@ -5,6 +5,7 @@
     {!! Form::open(['route' => 'users.store']) !!}
     {!! FormField::text('name', ['label' => trans('user.name'), 'required' => true]) !!}
     {!! FormField::text('username', ['label' => trans('user.username'), 'required' => true]) !!}
+    {!! FormField::select('is_admin', ['label' => 'manager', 'kasir', 'admin', 'required' => true]) !!}
     {!! FormField::password('password', ['label' => trans('auth.password'), 'info' => ['text' => 'Kosongkan jika menggunakan password default: <strong>rahasia</strong>']]) !!}
     {!! Form::submit(trans('user.create'), ['class' => 'btn btn-success']) !!}
     {{ link_to_route('users.index', trans('app.cancel'), [], ['class' => 'btn btn-default']) }}
